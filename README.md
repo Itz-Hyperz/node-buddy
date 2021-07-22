@@ -29,6 +29,18 @@ A way that you can log errors to a Discord channel via a Webhook.
 
 ---
 
+## Figlify Console Tool
+
+An easier way to use the Figlify module.
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | STRING  | The word(s) you want figlified
+| #2   | STRING  | The font to use for figlification.
+| #3   | STRING  | The CHALK NPM color you wish to use.
+
+---
+
 ## Colorizor Console Tool
 
 A cleaner and better way to log your errors in console.
@@ -37,6 +49,41 @@ A cleaner and better way to log your errors in console.
 |----------------|---------------|---------------|
 | #1   | STRING  | The content you want colorized.
 | #2   | STRING  | This is the color/bgColor the content should be logged in.
+
+
+---
+
+## Message Discord User Fetch
+
+Fetch a Discord user from a message or it's content.
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | CLIENT  | Provide your client here (bot, app, client).
+| #2   | MESSAGE  | The message variable you can pull mentions from.
+| #3   | STRING  | A backup ID or args statement when no mentions are provided.
+
+---
+
+## Discord User Fetch
+
+Fetch a Discord user by ID (basic).
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | CLIENT  | Provide your client here (bot, app, client).
+| #2   | STRING  | The userID you are trying to fetch info for.
+
+---
+
+## Discord Guild Fetch
+
+Fetch a Discord user by ID (basic).
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | CLIENT  | Provide your client here (bot, app, client).
+| #2   | STRING  | The guildID you are trying to fetch info for.
 
 ---
 
@@ -87,13 +134,3 @@ client.on('ready', async () => {
 
 client.login('YOUR_BOT_TOKEN')
 ```
-
----
-
-## What are the dependencies?
-
-[DiscordJS](https://www.npmjs.com/package/discord.js)
-
-[Chalk](https://www.npmjs.com/package/chalk)
-
----
