@@ -76,6 +76,17 @@ Fetch a Discord user by ID (basic).
 
 ---
 
+## Discord Channel Fetch
+
+Fetch a Discord user by ID (basic).
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | CLIENT  | Provide your client here (bot, app, client).
+| #2   | STRING  | The channelID you are trying to fetch info for.
+
+---
+
 ## Discord Guild Fetch
 
 Fetch a Discord user by ID (basic).
