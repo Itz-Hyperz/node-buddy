@@ -1,0 +1,30 @@
+{
+  "name": "node-buddy",
+  "version": "1.0.8",
+  "description": "A node module that is designed to make your life easier when dealing with errors, logging, and more!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Itz-Hyperz/node-buddy.git"
+  },
+  "keywords": [
+    "node-buddy",
+    "node",
+    "buddy",
+    "Hyperz",
+    "SamTheMan"
+  ],
+  "author": "Hyperz#0001",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Itz-Hyperz/node-buddy/issues"
+  },
+  "homepage": "https://github.com/Itz-Hyperz/node-buddy#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "discord.js": "^12.5.3"
+  }
+}
