@@ -78,7 +78,7 @@ Fetch a Discord user by ID (basic).
 
 ## Discord Channel Fetch
 
-Fetch a Discord user by ID (basic).
+Fetch a Discord channel by ID (basic).
 
 | Entry        | Type | Definition | 
 |----------------|---------------|---------------|
@@ -89,7 +89,7 @@ Fetch a Discord user by ID (basic).
 
 ## Discord Guild Fetch
 
-Fetch a Discord user by ID (basic).
+Fetch a Discord guild by ID (basic).
 
 | Entry        | Type | Definition | 
 |----------------|---------------|---------------|
