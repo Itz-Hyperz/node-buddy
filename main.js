@@ -4,6 +4,7 @@
 
 const chalk = require('chalk')
 const Discord = require('discord.js'); // Discord.JS V12
+const figlet = require('figlet')
 
 class buddy {
 
@@ -11,6 +12,70 @@ class buddy {
         this.useDiscord = useDiscord,
         this.discordUsername = discordUsername,
         this.discordAvatarURL = discordAvatarURL
+    }
+
+    async figlify(data, font, color) {
+        figlet(data, { font: font }, function(err, content) {
+            if (err) {
+                console.log(chalk.red('\nFiglify, something went wrong!\n\n'));
+                console.log(err + '\n');
+                return;
+            }
+            let logging;
+            switch (color) {
+                case 'blue':
+                    logging = chalk.blue(content);
+                    break;
+                case 'green':
+                    logging = chalk.green(content);
+                    break;
+                case 'yellow':
+                    logging = chalk.yellow(content);
+                    break;
+                case 'yello':
+                    logging = chalk.yellow(content);
+                    break;
+                case 'red':
+                    logging = chalk.red(content);
+                    break;
+                case 'black':
+                    logging = chalk.black(content);
+                    break;
+                case 'white':
+                    logging = chalk.white(content);
+                    break;
+                case 'magenta':
+                    logging = chalk.magenta(content);
+                    break;
+                case 'bgRed':
+                    logging = chalk.black.bgRed(content);
+                    break;
+                case 'bgGreen':
+                    logging = chalk.black.bgGreen(content);
+                    break;
+                case 'bgYellow':
+                    logging = chalk.black.bgYellow(content);
+                    break;
+                case 'bgYello':
+                    logging = chalk.black.bgYellow(content);
+                    break;
+                case 'bgBlue':
+                    logging = chalk.black.bgBlue(content);
+                    break;
+                case 'bgMagenta':
+                    logging = chalk.black.bgMagenta(content);
+                    break;
+                case 'bgCyan':
+                    logging = chalk.black.bgCyan(content);
+                    break;
+                case 'bgWhite':
+                    logging = chalk.black.bgWhite(content);
+                    break;
+                default:
+                    logging = chalk.blue(content);
+            }
+        });
+        console.log(logging)
     }
 
     // Colorizor Console Tool
@@ -71,6 +136,83 @@ class buddy {
         console.log(`${colored}`);
     }
 
+    // Fetch a member through a message
+    async messageGetDiscordUser(client, message, userid) {
+
+        if(!this.useDiscord) return;
+        let member;
+        if(message.mentions.users.first()) {
+            member = await message.mentions.users.first()
+        } else {
+            member = await client.users.fetch(userid)
+        }
+
+        if(member == undefined) return console.log(chalk.red(`Member search failed for messageGetDiscordUser function, invalid data entry.`));
+
+        return member;
+
+    }
+
+    // Fetch a member in general
+    async getDiscordUser(client, userid) {
+
+        if(!this.useDiscord) return;
+        let member;
+        if(!client) return console.log(chalk.red(`No client was specified`));
+        if(!userid) return console.log(chalk.red(`No userID was specified`));
+
+        try {
+            member = await client.users.fetch(userid)
+        } catch(e) {
+            console.log(e)
+        }
+
+        if(member == undefined) return console.log(chalk.red(`Member search failed for getDiscordUser function, invalid data entry.`));
+
+        return member;
+        
+    }
+
+    // Fetch a Discord channnel
+    async getDiscordChannel(client, channelid) {
+
+        if(!this.useDiscord) return;
+        let channel;
+        if(!client) return console.log(chalk.red(`No client was specified`));
+        if(!channelid) return console.log(chalk.red(`No channelID was specified`));
+
+        try {
+            channel = await client.channels.fetch(channelid)
+        } catch(e) {
+            console.log(e)
+        }
+
+        if(channelid == undefined) return console.log(chalk.red(`Channel search failed for getDiscordChannel function, invalid data entry.`));
+
+        return channel;
+        
+    }
+
+    // Fetch a Discord guild
+    async getDiscordGuild(client, guildid) {
+        
+        if(!this.useDiscord) return;
+        let guild;
+        if(!client) return console.log(chalk.red(`No client was specified`));
+        if(!guildid) return console.log(chalk.red(`No guildID was specified`));
+
+        try {
+            guild = await client.guilds.fetch(guildid)
+        } catch(e) {
+            console.log(e)
+        }
+
+        if(guild == undefined) return console.log(chalk.red(`Guild search failed for getDiscordGuild function, invalid data entry.`));
+
+        return guild;
+        
+    }
+
     // Console Error Handler
     async consoleError(error, color) {
         let logcolor;
@@ -94,7 +236,7 @@ class buddy {
                 logcolor = chalk.black(error);
                 break;
             case 'magenta':
-                logcolor = chalk.magenta(content);
+                logcolor = chalk.magenta(error);
                 break;
             default:
                 logcolor = chalk.red(error);
