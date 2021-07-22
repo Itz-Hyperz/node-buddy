@@ -29,6 +29,17 @@ A way that you can log errors to a Discord channel via a Webhook.
 
 ---
 
+## Colorizor Console Tool
+
+A cleaner and better way to log your errors in console.
+
+| Entry        | Type | Definition | 
+|----------------|---------------|---------------|
+| #1   | STRING  | The content you want colorized.
+| #2   | STRING  | This is the color/bgColor the content should be logged in.
+
+---
+
 ## Console Errors
 
 A cleaner and better way to log your errors in console.
@@ -61,6 +72,8 @@ const Discord = require('discord.js')
 const client = new Discord.Client()
 
 client.on('ready', async () => {
+    buddy.colorize(`I am now running...`, `blue`)
+
     let channel = await client.channels.cache.get('848346040511758356')
 
     if(channel == undefined) {
